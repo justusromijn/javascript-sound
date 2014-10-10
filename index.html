@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fun with oscillators</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul[data-instrument]{
+            display: block;
+            height: 80px;
+            width: 100%;
+            cursor: crosshair;
+            border: 1px solid black;
+        }
+        ul[data-instrument] li:active{
+            border: 1px solid red;
+            color: red;
+        }
+        ul[data-instrument] [data-note]{
+            background-color: white;
+            display: inline-block;
+            list-style: none;
+            width: calc(100%/15);
+            height: 80px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+        ul[data-instrument] [data-sharp] {
+            background-color: black;
+            margin-left: -50px;
+            color: white;
+            height: 60px;
+            padding: 0 -15px;
+            top: 0;
+        }
+
+        ul[data-instrument] [data-note].pressed {
+            font-weight: bold;
+            color: white;
+            background-color: black;
+            border: 2px dashed red;
+        }
+        ul[data-instrument] [data-sharp].pressed {
+            font-weight: bold;
+            color: black;
+            background-color: white;
+            border: 2px dashed red;
+        }
+    </style>
+
+</head>
+<body>
+<button onclick="start()">Start</button>
+
+<input type="range" id="freqModifier" min="0" max="12" />
+
+<ul data-instrument="piano">
+    
+    <li data-note="1">C</li>
+    <li data-note="2" data-sharp>C#</li>
+    <li data-note="3">D</li>
+    <li data-note="4" data-sharp>D#</li>
+    <li data-note="5">E</li>
+    <li data-note="6">F</li>
+    <li data-note="7" data-sharp>F#</li>
+    <li data-note="8">G</li>
+    <li data-note="9" data-sharp>G#</li>
+    <li data-note="10">A</li>
+    <li data-note="11" data-sharp>A#</li>
+    <li data-note="12">B</li>
+</ul>
+
+<script src="sound.js"></script>
+</body>
+</html>
